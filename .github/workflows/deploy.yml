@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [ main ]
-  workflow_dispatch:  # 支持手动触发
+  workflow_dispatch:
 
 jobs:
   build-and-deploy:
@@ -12,26 +12,31 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      # 1. 安装pnpm（固定版本，更快）
       - name: Setup pnpm
         uses: pnpm/action-setup@v2
         with:
-          version: latest
+          version: 8.15.0  # 固定版本，避免每次下载最新版
 
+      # 2. 安装Node.js（缓存依赖，核心优化）
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 18
-          cache: 'pnpm'
+          node-version: 18.20.1  # 固定小版本，更稳定
+          cache: 'pnpm'  # 缓存pnpm依赖，跳过重复下载
 
+      # 3. 安装依赖（有缓存的话，这步只要几秒）
       - name: Install dependencies
-        run: pnpm install
+        run: pnpm install --frozen-lockfile  # 锁定依赖版本，避免自动升级
 
+      # 4. 构建项目
       - name: Build Astro project
         run: pnpm build
 
+      # 5. 部署到GitHub Pages
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist  # 正确的Astro输出目录
+          publish_dir: ./dist
           force_orphan: true
