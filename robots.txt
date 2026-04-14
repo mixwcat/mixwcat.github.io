@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+Disallow: /_astro/
+Disallow: /fonts/
+
+Sitemap: https://gyoza.lxchapu.com/sitemap-index.xml
