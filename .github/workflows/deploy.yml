@@ -14,9 +14,9 @@ jobs:
 
       # 1. 安装pnpm（固定版本，更快）
       - name: Setup pnpm
-        uses: pnpm/action-setup@v2
+        uses: pnpm/action-setup@v4
         with:
-          version: 8.15.0  # 固定版本，避免每次下载最新版
+          version: 10.33.0  # 固定版本，避免每次下载最新版
 
       # 2. 安装Node.js（缓存依赖，核心优化）
       - name: Setup Node.js
