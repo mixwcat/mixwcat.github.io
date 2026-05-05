@@ -22,7 +22,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 18.20.1  # 固定小版本，更稳定
+          node-version: 18.20.8  # 固定小版本，更稳定
           cache: 'pnpm'  # 缓存pnpm依赖，跳过重复下载
 
       # 3. 安装依赖（有缓存的话，这步只要几秒）
