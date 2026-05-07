@@ -30,9 +30,9 @@
       <!-- 控制光束左右移动 -->
       <animate 
   attributeName="cx" 
-  values="-50%;  150%" 
-  dur="8s" 
-  keyTimes="0;  1" 
+  values="-20%; 120%; 120%" 
+  dur="6s" 
+  keyTimes="0; 0.8; 1" 
   repeatCount="indefinite" />
       <!-- 纵向微动 -->
       <animate attributeName="cy" values="48%;52%;48%" dur="2.5s" repeatCount="indefinite" />
