@@ -1,10 +1,10 @@
 ---
-title: Survivor - 类幸存者塔防游戏
+title: Unity项目 - 活下去
 date: 2026-04-30
 lastMod: 2026-04-30T00:00:00.000Z
-summary: 一款类幸存者风格的塔防游戏，支持 Windows 和 Android 双端，包含角色升级、防御塔部署与升级系统，联机功能开发中。
+summary: 一款类幸存者风格的塔防游戏，支持 Windows 和 Android 双端，包含角色升级、防御塔部署与升级系统。
 category: Unity
-tags: [Unity, 幸存者, 塔防, Android, 联机]
+tags: [Unity]
 ---
 
 ## 项目简介
@@ -15,7 +15,7 @@ tags: [Unity, 幸存者, 塔防, Android, 联机]
 
 - **引擎：** Unity
 - **平台：** Windows / Android
-- **网络：** 待定（联机功能开发中）
+- **网络：** （联机功能开发中）
 
 ## 当前进度
 
@@ -34,6 +34,7 @@ tags: [Unity, 幸存者, 塔防, Android, 联机]
 - 更多防御塔类型
 - 敌人种类与 BOSS 战
 - 资源 / 经济系统平衡
+- 玩家武器与防御塔的联动
 
 ## 核心玩法
 
@@ -44,19 +45,14 @@ tags: [Unity, 幸存者, 塔防, Android, 联机]
 
 ## 演示
 
-<!-- TODO: 上传演示视频到 B 站后替换 BV 号 -->
-<iframe src="//player.bilibili.com/player.html?bvid=BV1xxxxxxxxx" scrolling="no" border="0" frameborder="no" allowfullscreen="true" width="100%" height="400"> </iframe>
+### 手机端
 
-## 项目地址
+<video src="https://res.cloudinary.com/dmlj5k2k2/video/upload/v1777618343/sjdssv-pressed_dvxm5d.mp4" controls width="100%" style="max-width: 720px; border-radius: 8px;"></video>
 
-[GitHub 仓库链接](https://github.com/你的用户名/仓库名)
+### 桌面端
 
-## 截图
+<video src="https://res.cloudinary.com/dmlj5k2k2/video/upload/v1777618414/ssv-pressed_w8sbpr.mp4" controls width="100%" style="max-width: 720px; border-radius: 8px;"></video>
 
-<!-- 图片用图床 -->
+## 分享
 
-![截图描述](你的图床图片链接)
-
----
-
-*开发中，持续更新...*
+_开发中，持续更新..._
