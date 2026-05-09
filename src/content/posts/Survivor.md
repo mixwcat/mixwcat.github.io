@@ -4,7 +4,7 @@ date: 2026-04-30
 lastMod: 2026-04-30T00:00:00.000Z
 summary: 一款类幸存者风格的塔防游戏，支持 Windows 和 Android 双端，包含角色升级、防御塔部署与升级系统。
 category: Unity
-tags: [Unity]
+tags: [Unity, 2D]
 ---
 
 ## 项目简介

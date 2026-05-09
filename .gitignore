@@ -24,4 +24,4 @@ pnpm-debug.log*
 .idea/
 
 # local claude config
-.claude/settings.local.json
+.claude/

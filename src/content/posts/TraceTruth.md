@@ -4,7 +4,7 @@ date: 2026-05-06
 lastMod: 2026-05-06T00:00:00.000Z
 summary: 一款俯视角2D平面解谜游戏，利用场上的机关抵达终点。
 category: Unity
-tags: [Unity]
+tags: [Unity, 2D]
 ---
 
 ## 项目简介

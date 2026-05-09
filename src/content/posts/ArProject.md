@@ -4,7 +4,7 @@ date: 2026-04-30
 lastMod: 2026-04-30T00:00:00.000Z
 summary: 一款基于Unity+Vufora的AR建筑科普应用
 category: Unity
-tags: [Unity]
+tags: [Unity, AR]
 ---
 
 ## 项目简介

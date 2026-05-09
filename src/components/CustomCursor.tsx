@@ -89,6 +89,7 @@ export function CustomCursor({
 
   const [hoverState, setHoverState] = useState<HoverState>('normal')
   const [isLoading, setIsLoading] = useState(false)
+  const [isVisible, setIsVisible] = useState(true)
   const hoverRef = useRef<HoverState>('normal')
 
   const cursorX = useMotionValue(-100)
@@ -116,6 +117,13 @@ export function CustomCursor({
     const onSwupStart = () => setIsLoading(true)
     const onSwupEnd = () => setIsLoading(false)
 
+    // 鼠标离开/回到窗口
+    const onDocLeave = () => setIsVisible(false)
+    const onDocEnter = () => setIsVisible(true)
+    // 窗口失去/获得焦点
+    const onBlur = () => setIsVisible(false)
+    const onFocus = () => setIsVisible(true)
+
     window.addEventListener('mousemove', onMove)
     document.addEventListener('readystatechange', checkLoading)
     window.addEventListener('load', () => setIsLoading(false))
@@ -123,6 +131,11 @@ export function CustomCursor({
     document.addEventListener('swup:visit:start', onSwupStart)
     document.addEventListener('swup:visit:end', onSwupEnd)
     document.addEventListener('swup:content:replace', onSwupEnd)
+
+    document.documentElement.addEventListener('mouseleave', onDocLeave)
+    document.documentElement.addEventListener('mouseenter', onDocEnter)
+    window.addEventListener('blur', onBlur)
+    window.addEventListener('focus', onFocus)
 
     checkLoading()
 
@@ -132,10 +145,15 @@ export function CustomCursor({
       document.removeEventListener('swup:visit:start', onSwupStart)
       document.removeEventListener('swup:visit:end', onSwupEnd)
       document.removeEventListener('swup:content:replace', onSwupEnd)
+      document.documentElement.removeEventListener('mouseleave', onDocLeave)
+      document.documentElement.removeEventListener('mouseenter', onDocEnter)
+      window.removeEventListener('blur', onBlur)
+      window.removeEventListener('focus', onFocus)
     }
   }, [cursorX, cursorY])
 
   const currentState: CursorState = isLoading ? 'loading' : hoverState
+  const visible = isVisible && !isLoading
   const src = cursors[currentState]
   const offsetX = -size * hotspot.x
   const offsetY = -size * hotspot.y
@@ -144,6 +162,8 @@ export function CustomCursor({
     <motion.div
       className="fixed top-0 left-0 pointer-events-none z-[9999]"
       style={{ x: springX, y: springY }}
+      animate={{ opacity: visible ? 1 : 0 }}
+      transition={{ duration: 0.15 }}
     >
       <img
         key={currentState}
