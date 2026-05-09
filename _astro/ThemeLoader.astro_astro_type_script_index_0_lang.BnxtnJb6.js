@@ -1,0 +1,1 @@
+import{g as s,a,c as n}from"./theme.BxgT0uNq.js";const o=["4-4","5-12","7-7","9-18","12-13"];function c(){const e=new Date,t=`${e.getMonth()+1}-${e.getDate()}`;return o.includes(t)}function m(){const e=s(),t=a();e==="system"?n(t):n(e),c()&&document.documentElement.classList.add("gray")}m();

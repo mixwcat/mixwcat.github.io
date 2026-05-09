@@ -1,0 +1,1 @@
+import{b as s}from"./react.D8Vd36ae.js";const r="gyoza-cursor-size",e=[32,40,48];function n(){const o=localStorage.getItem(r),t=Number(o);return e.includes(t)?t:(c(32),32)}function c(o){localStorage.setItem(r,String(o))}function u(o){const t=e.indexOf(o);return e[(t+1)%e.length]}const a=s(n());export{a as c,u as g,c as s};
