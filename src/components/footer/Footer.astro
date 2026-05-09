@@ -1,5 +1,6 @@
 ---
 import { ThemeSwitch } from './ThemeSwitch'
+import { CursorSizeSwitch } from './CursorSizeSwitch'
 import { author, footer } from '@/config.json'
 import { getAllPostsWordCount } from '@/utils/content'
 import { RunningDays } from './RunningDays'
@@ -33,7 +34,8 @@ const wordCountStr = (wordCount / 1000).toFixed(1) + 'k'
       <span>共嘚嘚了 {wordCountStr} 字</span>
     </div>
   </div>
-  <div class="mt-4 flex justify-center">
+  <div class="mt-4 flex justify-center gap-3 items-center">
     <ThemeSwitch client:only="react" />
+    <CursorSizeSwitch client:only="react" />
   </div>
 </footer>

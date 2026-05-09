@@ -42,3 +42,18 @@ html.gray {
 * {
   scrollbar-width: thin;
 }
+
+/* 隐藏系统光标（仅在非触摸设备） */
+@media (hover: hover) {
+  html,
+  html * {
+    cursor: none !important;
+  }
+}
+
+/* 触摸设备不干预 */
+@media (hover: none) {
+  .custom-cursor-wrapper {
+    display: none;
+  }
+}

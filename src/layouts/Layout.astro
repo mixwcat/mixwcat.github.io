@@ -9,6 +9,7 @@ import {
 import { BackToTopFAB } from '@/components/BackToTopFAB'
 import { ToastContainer } from '@/components/ToastContainer'
 import { ModalStack } from '@/components/ui/modal'
+import { CustomCursor } from '@/components/CustomCursor'
 import { site } from '@/config.json'
 import '@/styles/global.css'
 
@@ -36,5 +37,14 @@ const { title, description, image } = Astro.props
     <BackToTopFAB client:only="react" />
     <ToastContainer client:only="react" />
     <ModalStack client:only="react" />
+    <CustomCursor
+      client:only="react"
+      cursors={{
+        normal: '/cursors/normal.gif',
+        choose: '/cursors/choose.gif',
+        loading: '/cursors/loading.gif',
+        vertical: '/cursors/vertical.gif',
+      }}
+    />
   </body>
 </html>
