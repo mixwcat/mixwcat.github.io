@@ -33,7 +33,7 @@ tags: [Unity]
 
 ## 开发笔记
 
-### 一、ScriptableObject 事件系统
+### 一、事件系统
 
 <p style="text-indent: 2em;">基于 ScriptableObject 的泛型事件系统。泛型基类内部维护了一个 UnityAction 委托，调用 RaiseEvent 方法时触发所有注册的监听者。具体事件类型通过空继承一行代码即可定义，泛型监听器在 OnEnable 和 OnDisable 中自动完成事件的注册与注销。每个事件通道是一个 ScriptableObject 资源文件，在 Inspector 中拖拽即可完成模块间的连接。比较关键的是 InputManager 只负责发出方向事件、PlayerMove 只负责响应，双方互不感知。
 
