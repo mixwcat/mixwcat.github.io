@@ -59,7 +59,15 @@ export async function getAllPostsWordCount() {
 
 // 转换为 URL 安全的 slug，删除点，空格转为短横线，大写转为小写
 export function slugify(text: string) {
-  return text.replace(/\./g, '').replace(/\s/g, '-').toLowerCase()
+  return text
+    .trim()
+    .toLowerCase()
+    .replace(/#/g, 'sharp')
+    .replace(/\+/g, 'plus')
+    .replace(/&/g, 'and')
+    .replace(/@/g, 'at')
+    .replace(/[^\p{Letter}\p{Number}]+/gu, '-')
+    .replace(/^-+|-+$/g, '')
 }
 
 // 获取所有分类

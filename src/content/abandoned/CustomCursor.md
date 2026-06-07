@@ -1,5 +1,5 @@
 ---
-title: 前端 - 自定义光标
+title: 自定义光标
 date: 2026-05-09
 lastMod: 2026-05-09T00:00:00.000Z
 summary: 从一套 .ani 动画光标出发，用 DOM 元素跟随方案在实现了自定义光标状态
@@ -15,11 +15,11 @@ tags: [Astro, 前端, Vibe Coding]
 
 ## 方案选型
 
-| 方案 | 优点 | 缺点 |
-|---|---|---|
-| CSS `cursor: url()` | 最简单 | 不支持动画，不能动态切换状态 |
-| DOM 元素 + `mousemove` | 完全可控，支持动画/切换 | 需要自己处理性能、边界情况 |
-| Canvas 绘制 | 性能最好，可做复杂轨迹 | 过度设计，本项目不需要 |
+| 方案                   | 优点                    | 缺点                         |
+| ---------------------- | ----------------------- | ---------------------------- |
+| CSS `cursor: url()`    | 最简单                  | 不支持动画，不能动态切换状态 |
+| DOM 元素 + `mousemove` | 完全可控，支持动画/切换 | 需要自己处理性能、边界情况   |
+| Canvas 绘制            | 性能最好，可做复杂轨迹  | 过度设计，本项目不需要       |
 
 最终选择 **DOM 元素 + framer-motion** 的弹簧动画，用 `motion.div` 跟随鼠标坐标。
 
@@ -44,12 +44,12 @@ const springY = smooth ? useSpring(cursorY, { stiffness, damping: 20 }) : cursor
 
 博客里需要四种光标语义：
 
-| 状态 | 触发场景 |
-|---|---|
-| `normal` | 默认状态 |
-| `choose` | 悬停在 `<a>`、`<button>`、`cursor: pointer` 元素上 |
-| `vertical` | 悬停在输入框、文本域、`cursor: text` 区域 |
-| `loading` | 页面加载中 / swup 路由切换时 |
+| 状态       | 触发场景                                           |
+| ---------- | -------------------------------------------------- |
+| `normal`   | 默认状态                                           |
+| `choose`   | 悬停在 `<a>`、`<button>`、`cursor: pointer` 元素上 |
+| `vertical` | 悬停在输入框、文本域、`cursor: text` 区域          |
+| `loading`  | 页面加载中 / swup 路由切换时                       |
 
 自动检测逻辑是向上冒泡遍历 DOM，优先读 `data-cursor` 属性（允许手动覆盖），再按标签和计算样式判断：
 
@@ -133,7 +133,10 @@ const springX = smooth ? useSpring(cursorX, ...) : cursorX  // smooth=false 时�
 
 ```css
 @media (hover: hover) {
-  html, html * { cursor: none !important; }
+  html,
+  html * {
+    cursor: none !important;
+  }
 }
 ```
 
@@ -160,4 +163,4 @@ const springX = smooth ? useSpring(cursorX, ...) : cursorX  // smooth=false 时�
 
 ---
 
-*写于 2026-05-09，项目栈 Astro 5.18 + React 18 + framer-motion 11.18*
+_写于 2026-05-09，项目栈 Astro 5.18 + React 18 + framer-motion 11.18_

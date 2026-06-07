@@ -29,9 +29,9 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile  # 锁定依赖版本，避免自动升级
 
-      # 4. 构建项目
+      # 4. 构建项目（包含 astro check、astro build 和 pagefind 索引）
       - name: Build Astro project
-        run: pnpm build
+        run: pnpm build  # 会执行: astro check && astro build && pagefind --site dist
 
       # 5. 部署到GitHub Pages
       - name: Deploy to GitHub Pages
